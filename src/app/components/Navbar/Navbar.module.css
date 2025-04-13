@@ -1,0 +1,28 @@
+.wrapper {
+    max-height: 64px;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    font-size: 40px;
+}
+
+.navbar-menu-desktop {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navbar-menu-desktop {
+        display: block;
+    }
+
+    .navbar-menu-mobile {
+        display: none;
+    }
+}

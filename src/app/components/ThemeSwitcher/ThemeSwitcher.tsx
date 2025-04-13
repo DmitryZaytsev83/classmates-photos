@@ -1,19 +1,41 @@
-// app/components/ThemeSwitcher.tsx
 "use client"; // Это клиентский компонент
 
+import {DesktopOutlined, MoonOutlined, SunOutlined} from "@ant-design/icons";
+import {CheckboxGroupProps} from "antd/es/checkbox";
 import {useState, useEffect} from 'react';
-import {Select} from 'antd';
+import {Radio} from 'antd';
+
+enum Theme {
+    light = 'light',
+    dark = 'dark',
+    system = 'system',
+}
+
+const options: CheckboxGroupProps<string>['options'] = [
+    {
+        value: Theme.light,
+        label: <SunOutlined/>
+    },
+    {
+        value: Theme.system,
+        label: <DesktopOutlined/>
+    },
+    {
+        value: Theme.dark,
+        label: <MoonOutlined/>
+    },
+];
 
 const ThemeSwitcher = () => {
-    const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system');
+    const [theme, setTheme] = useState<Theme>(Theme.system);
 
     // Функция для применения выбранной темы
-    const applyTheme = (selectedTheme: 'light' | 'dark' | 'system') => {
+    const applyTheme = (selectedTheme: Theme) => {
         let resolvedTheme = selectedTheme;
 
-        if (selectedTheme === 'system') {
+        if (selectedTheme === Theme.system) {
             // Определяем текущую системную тему
-            resolvedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            resolvedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.dark : Theme.light;
         }
 
         // Устанавливаем атрибут data-theme в HTML
@@ -25,15 +47,15 @@ const ThemeSwitcher = () => {
 
     // Инициализация темы при загрузке
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'system' || 'system';
+        const savedTheme = localStorage.getItem('theme') as Theme || Theme.system;
         setTheme(savedTheme);
         applyTheme(savedTheme);
 
         // Слушатель изменений системной темы
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        const handleChange = (e: MediaQueryListEvent) => {
-            if (theme === 'system') {
-                applyTheme('system');
+        const handleChange = () => {
+            if (theme === Theme.system) {
+                applyTheme(Theme.system);
             }
         };
 
@@ -44,31 +66,19 @@ const ThemeSwitcher = () => {
     }, [theme]);
 
     // Обработчик изменения темы
-    const handleChange = (value: 'light' | 'dark' | 'system') => {
+    const handleChange = (value: Theme) => {
         setTheme(value);
         applyTheme(value);
     };
 
     return (
-        <Select
-            defaultValue="system"
+        <Radio.Group
+            size="small"
+            options={options}
+            onChange={(event) => handleChange(event.target.value)}
             value={theme}
-            onChange={handleChange}
-            options={[
-                {
-                    value: 'light',
-                    label: 'Светлая'
-                },
-                {
-                    value: 'dark',
-                    label: 'Темная'
-                },
-                {
-                    value: 'system',
-                    label: 'Системная'
-                },
-            ]}
-            style={{width: 120}}
+            optionType="button"
+            buttonStyle="solid"
         />
     );
 };

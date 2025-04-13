@@ -1,0 +1,35 @@
+.grid-container {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 100%;
+}
+
+@media (min-width: 576px) {
+    .grid-container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid-container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .grid-container {
+        max-width: 1320px;
+    }
+}

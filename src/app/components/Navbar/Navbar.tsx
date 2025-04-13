@@ -48,6 +48,7 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                     <div style={{flex: 1}}>
                         <div className={styles.logo}>
                             <HeartOutlined/>
+                            <span>Родной класс</span>
                         </div>
                     </div>
 
@@ -71,7 +72,9 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                                 </Dropdown>
                             )
                             : (
-                                <Button type="primary" onClick={onLoginAction}>
+                                <Button
+                                    type="primary"
+                                    onClick={onLoginAction}>
                                     Войти
                                 </Button>
                             )

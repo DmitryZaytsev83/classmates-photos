@@ -54,6 +54,7 @@ const ThemeSwitcher = () => {
 
     return (
         <Segmented
+            value={theme}
             onChange={handleChange}
             options={ThemeOptions}
         />

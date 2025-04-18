@@ -10,14 +10,14 @@ type ThemeOption = {
 export const ThemeOptions: ThemeOption[] = [
     {
         value: Theme.light,
-        icon: <SunOutlined/>,
+        icon: <SunOutlined />,
     },
     {
         value: Theme.system,
-        icon: <DesktopOutlined/>,
+        icon: <DesktopOutlined />,
     },
     {
         value: Theme.dark,
-        icon: <MoonOutlined/>,
+        icon: <MoonOutlined />,
     },
 ];

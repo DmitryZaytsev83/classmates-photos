@@ -1,34 +1,11 @@
-"use client"; // Это клиентский компонент
+'use client';
 
-import {DesktopOutlined, MoonOutlined, SunOutlined} from "@ant-design/icons";
-import React, {useState, useEffect, JSX} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Segmented} from 'antd';
 
-enum Theme {
-    light = 'light',
-    dark = 'dark',
-    system = 'system',
-}
+import {ThemeOptions} from './Data/Data';
+import {Theme} from './types';
 
-type ThemeOption = {
-    value: Theme;
-    icon: JSX.Element;
-}
-
-const ThemeOptions: ThemeOption[] = [
-    {
-        value: Theme.light,
-        icon: <SunOutlined/>
-    },
-    {
-        value: Theme.system,
-        icon: <DesktopOutlined/>
-    },
-    {
-        value: Theme.dark,
-        icon: <MoonOutlined/>
-    },
-]
 
 const ThemeSwitcher = () => {
     const [theme, setTheme] = useState<Theme>(Theme.system);
@@ -80,7 +57,7 @@ const ThemeSwitcher = () => {
             onChange={handleChange}
             options={ThemeOptions}
         />
-    )
+    );
 };
 
 export default ThemeSwitcher;

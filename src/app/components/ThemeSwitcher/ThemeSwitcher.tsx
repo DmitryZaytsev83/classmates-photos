@@ -1,9 +1,8 @@
 "use client"; // Это клиентский компонент
 
 import {DesktopOutlined, MoonOutlined, SunOutlined} from "@ant-design/icons";
-import {CheckboxGroupProps} from "antd/es/checkbox";
-import {useState, useEffect} from 'react';
-import {Radio} from 'antd';
+import React, {useState, useEffect, JSX} from 'react';
+import {Segmented} from 'antd';
 
 enum Theme {
     light = 'light',
@@ -11,20 +10,25 @@ enum Theme {
     system = 'system',
 }
 
-const options: CheckboxGroupProps<string>['options'] = [
+type ThemeOption = {
+    value: Theme;
+    icon: JSX.Element;
+}
+
+const ThemeOptions: ThemeOption[] = [
     {
         value: Theme.light,
-        label: <SunOutlined/>
+        icon: <SunOutlined/>
     },
     {
         value: Theme.system,
-        label: <DesktopOutlined/>
+        icon: <DesktopOutlined/>
     },
     {
         value: Theme.dark,
-        label: <MoonOutlined/>
+        icon: <MoonOutlined/>
     },
-];
+]
 
 const ThemeSwitcher = () => {
     const [theme, setTheme] = useState<Theme>(Theme.system);
@@ -72,15 +76,11 @@ const ThemeSwitcher = () => {
     };
 
     return (
-        <Radio.Group
-            size="small"
-            options={options}
-            onChange={(event) => handleChange(event.target.value)}
-            value={theme}
-            optionType="button"
-            buttonStyle="solid"
+        <Segmented
+            onChange={handleChange}
+            options={ThemeOptions}
         />
-    );
+    )
 };
 
 export default ThemeSwitcher;

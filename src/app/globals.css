@@ -2,16 +2,16 @@
 [data-theme="light"] {
     --primary-color: #1890ff;
     --background-color: #ffffff;
-    --text-color: #000000;
+    --text-color: #121519;
     --header-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Тёмная тема */
 [data-theme="dark"] {
     --primary-color: #177ddc;
-    --background-color: #141414;
+    --background-color: #222838;
     --text-color: #ffffff;
-    --header-box-shadow: 0 2px 8px red;
+    --header-box-shadow: 0 2px 8px gold;
 }
 
 body {
@@ -19,6 +19,7 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
     margin: 0;
+    font-size: 16px;
 }
 
 .ant-layout-header {

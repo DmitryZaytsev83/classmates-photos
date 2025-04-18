@@ -33,3 +33,7 @@
         display: none;
     }
 }
+
+.switcherWrapper {
+    margin: 0 16px;
+}

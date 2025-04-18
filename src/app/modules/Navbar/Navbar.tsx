@@ -58,8 +58,9 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                         items={menuItems}
                         className={styles['navbar-menu-desktop']}
                     />
-
-                    <ThemeSwitcher />
+                    <div className={styles.switcherWrapper}>
+                        <ThemeSwitcher />
+                    </div>
 
                     {/* Аватар профиля или кнопка "Войти" */}
                     {

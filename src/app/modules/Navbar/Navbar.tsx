@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
 import {useState} from 'react';
 import {Layout, Menu, Button, Drawer, Avatar, Dropdown} from 'antd';
 import {HeartOutlined, MenuOutlined} from '@ant-design/icons';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
-import GridContainer from "@/app/components/GridContainer/GridContainer";
-import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import GridContainer from '@/app/components/GridContainer/GridContainer';
+import ThemeSwitcher from '@/app/modules/ThemeSwitcher/ThemeSwitcher';
 
 const {Header} = Layout;
 
@@ -23,13 +23,13 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
             key: 'games',
             label: <Link href="/games">
                 Игры
-            </Link>
+            </Link>,
         },
         {
             key: 'info',
             label: <Link href="/info">
                 Информация
-            </Link>
+            </Link>,
         },
     ];
 
@@ -47,7 +47,7 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                 <div className={styles.navbar}>
                     <div style={{flex: 1}}>
                         <div className={styles.logo}>
-                            <HeartOutlined/>
+                            <HeartOutlined />
                             <span>Родной класс</span>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                         className={styles['navbar-menu-desktop']}
                     />
 
-                    <ThemeSwitcher/>
+                    <ThemeSwitcher />
 
                     {/* Аватар профиля или кнопка "Войти" */}
                     {
@@ -82,7 +82,7 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
 
                     {/* Кнопка для открытия Drawer на мобильных устройствах */}
                     <Button
-                        icon={<MenuOutlined/>}
+                        icon={<MenuOutlined />}
                         className={styles['navbar-menu-mobile']}
                         onClick={() => setIsDrawerVisible(true)}
                     />
@@ -93,7 +93,7 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                         placement="right"
                         onClose={() => setIsDrawerVisible(false)}
                         open={isDrawerVisible}>
-                        <Menu mode="vertical" items={menuItems}/>
+                        <Menu mode="vertical" items={menuItems} />
                     </Drawer>
                 </div>
             </GridContainer>

@@ -1,8 +1,8 @@
 "use client";
 
 import '@ant-design/v5-patch-for-react-19';
-import Navbar from './components/Navbar/Navbar';
-import AuthModal from './components/AuthModal/AuthModal';
+import Navbar from '@/app/modules/Navbar/Navbar';
+import AuthModal from '@/app/modules/AuthModal/AuthModal';
 import HeroSection from './components/HeroSection/HeroSection';
 import {useState} from 'react';
 

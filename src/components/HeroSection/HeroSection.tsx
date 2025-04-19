@@ -1,6 +1,6 @@
 // app/components/HeroSection.tsx
 import {Typography} from 'antd';
-import GridContainer from "@/app/components/GridContainer/GridContainer";
+import GridContainer from "@/components/GridContainer/GridContainer";
 
 const {Title, Paragraph} = Typography;
 

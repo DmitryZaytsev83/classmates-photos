@@ -1,9 +1,10 @@
 'use client';
 
+import Navigation from '@/app/modules/Navbar/Modules/Navigation/Navigation';
 import {useState} from 'react';
 import {Layout, Menu, Button, Drawer, Avatar, Dropdown} from 'antd';
 import {HeartOutlined, MenuOutlined} from '@ant-design/icons';
-import Link from 'next/link';
+
 import styles from './Navbar.module.css';
 import GridContainer from '@/app/components/GridContainer/GridContainer';
 import ThemeSwitcher from '@/app/modules/ThemeSwitcher/ThemeSwitcher';
@@ -18,20 +19,6 @@ type NavbarProps = {
 export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
     const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
-    const menuItems = [
-        {
-            key: 'games',
-            label: <Link href="/games">
-                Игры
-            </Link>,
-        },
-        {
-            key: 'info',
-            label: <Link href="/info">
-                Информация
-            </Link>,
-        },
-    ];
 
     const profileMenu = (
         <Menu>
@@ -53,11 +40,8 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                     </div>
 
                     {/* Навигация для десктопа */}
-                    <Menu
-                        mode="horizontal"
-                        items={menuItems}
-                        className={styles['navbar-menu-desktop']}
-                    />
+                    <Navigation />
+
                     <div className={styles.switcherWrapper}>
                         <ThemeSwitcher />
                     </div>
@@ -94,7 +78,7 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                         placement="right"
                         onClose={() => setIsDrawerVisible(false)}
                         open={isDrawerVisible}>
-                        <Menu mode="vertical" items={menuItems} />
+                        <Navigation />
                     </Drawer>
                 </div>
             </GridContainer>

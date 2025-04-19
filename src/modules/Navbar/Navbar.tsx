@@ -1,19 +1,20 @@
 'use client';
 
-import Navigation from '@/app/modules/Navbar/Modules/Navigation/Navigation';
+import Navigation from '@/modules/Navbar/Modules/Navigation/Navigation';
 import {useState} from 'react';
 import {Layout, Menu, Button, Drawer, Avatar, Dropdown} from 'antd';
 import {HeartOutlined, MenuOutlined} from '@ant-design/icons';
 
 import styles from './Navbar.module.css';
-import GridContainer from '@/app/components/GridContainer/GridContainer';
-import ThemeSwitcher from '@/app/modules/ThemeSwitcher/ThemeSwitcher';
+import GridContainer from '@/components/GridContainer/GridContainer';
+import ThemeSwitcher from '@/modules/ThemeSwitcher/ThemeSwitcher';
+import Link from 'next/link';
 
 const {Header} = Layout;
 
 type NavbarProps = {
-    isLoggedIn: boolean;
-    onLoginAction: () => void;
+    isLoggedIn?: boolean;
+    onLoginAction?: () => void;
 }
 
 export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
@@ -33,10 +34,12 @@ export default function Navbar({isLoggedIn, onLoginAction}: NavbarProps) {
                 {/* Логотип */}
                 <div className={styles.navbar}>
                     <div style={{flex: 1}}>
-                        <div className={styles.logo}>
-                            <HeartOutlined />
-                            <span>Родной класс</span>
-                        </div>
+                        <Link href="/">
+                            <div className={styles.logo}>
+                                <HeartOutlined />
+                                <span>Родной класс</span>
+                            </div>
+                        </Link>
                     </div>
 
                     {/* Навигация для десктопа */}

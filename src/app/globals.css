@@ -9,8 +9,8 @@
 /* Тёмная тема */
 [data-theme="dark"] {
     --primary-color: #177ddc;
-    --background-color: #222838;
-    --text-color: #ffffff;
+    --background-color: #222732;
+    --text-color: rgb(214, 214, 214);
     --header-box-shadow: 0 2px 8px gold;
 }
 
@@ -23,7 +23,6 @@ body {
 }
 
 .ant-layout-header {
-    position: fixed;
     width: 100%;
     z-index: 1000;
     box-shadow: var(--header-box-shadow);
@@ -35,4 +34,20 @@ body {
 
 .ant-drawer-content-wrapper {
     max-width: 300px;
+}
+
+.ant-menu {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.ant-menu-light .ant-menu-item,
+.ant-menu-dark .ant-menu-item {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.ant-menu-item-selected {
+    background: transparent;
+    color: var(--primary-color);
 }

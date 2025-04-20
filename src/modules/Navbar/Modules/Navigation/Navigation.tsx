@@ -1,24 +1,12 @@
 import NavbarLinks from '@/data/AppNavigation';
-import {NavbarLink} from '@/types/App';
-import {Menu, MenuProps} from 'antd';
-
-import {Grid} from 'antd';
-import Link from 'next/link';
+import {Grid, Menu, MenuProps} from 'antd';
 import {useState} from 'react';
+
 import styles from './Navigation.module.css';
+import {getMenuItems} from './Utils/getMenuItems';
 
 const {useBreakpoint} = Grid;
 
-const getMenuItems = (items: NavbarLink[]) => {
-    return items.map((item) => ({
-        key: item.key,
-        label: (
-            <Link href={item.link}>
-                {item.title}
-            </Link>
-        ),
-    }));
-};
 
 const Navigation = () => {
     const screens = useBreakpoint();

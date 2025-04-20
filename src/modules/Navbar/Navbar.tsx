@@ -1,14 +1,14 @@
 'use client';
 
-import Navigation from '@/modules/Navbar/Modules/Navigation/Navigation';
 import {useState} from 'react';
+import Link from 'next/link';
 import {Layout, Menu, Button, Drawer, Avatar, Dropdown} from 'antd';
 import {HeartOutlined, MenuOutlined} from '@ant-design/icons';
-
-import styles from './Navbar.module.css';
+import Navigation from '@/modules/Navbar/Modules/Navigation/Navigation';
 import GridContainer from '@/components/GridContainer/GridContainer';
 import ThemeSwitcher from '@/modules/ThemeSwitcher/ThemeSwitcher';
-import Link from 'next/link';
+
+import styles from './Navbar.module.css';
 
 const {Header} = Layout;
 

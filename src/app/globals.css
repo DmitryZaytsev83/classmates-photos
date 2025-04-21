@@ -11,7 +11,7 @@
     --primary-color: #177ddc;
     --background-color: #222732;
     --text-color: rgb(214, 214, 214);
-    --header-box-shadow: 0 2px 8px gold;
+    --header-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -20,6 +20,25 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     margin: 0;
     font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+
+    @media screen and (min-width: 360px) {
+        padding: 16px 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        padding: 24px 0;
+    }
+
+    @media screen and (min-width: 1200px) {
+        padding: 40px 0;
+    }
 }
 
 .ant-layout-header {
